@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Details | Cracked Clients</title>
+    <!-- Fonts and Styling -->
+     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍩</text></svg>">    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="detail-page">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">CRACKED<span>CLIENTS</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#installation">Installation</a>
+        </div>
+    </nav>
+
+    <div class="container detail-container">
+        <!-- Top Section: Main Content & Media -->
+        <div class="detail-top-grid">
+            <div class="main-info-card">
+                <span class="status-badge" id="det-status">UNDETECTED</span>
+                <h1 id="det-title" style="font-size: 3.5rem; margin: 15px 0; font-weight: 800;">Loading...</h1>
+                <p id="det-desc" style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 25px;"></p>
+                
+                <div class="tags" id="det-tags"></div>
+                
+                <div class="action-btns">
+                    <a href="#" class="btn-download" id="download-link">Download</a>
+                    <a href="index.html" class="btn-back">Back To All Mods</a>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <!-- Media Card with 16:9 Aspect Ratio -->
+                <div class="media-card">
+                    <img src="" alt="Preview" id="det-img">
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="req-label">MINECRAFT VERSION</span>
+                        <strong id="det-ver"></strong>
+                    </div>
+                    <div class="stat-box">
+                        <span class="req-label">REQUIREMENTS</span>
+                        <strong id="det-req"></strong>
+                    </div>
+                    <div class="stat-box">
+                        <span class="req-label">SIZE</span>
+                        <strong id="det-size"></strong>
+                    </div>
+                    <div class="stat-box">
+                        <span class="req-label">TOTAL DOWNLOADS</span>
+                        <strong id="det-dl"></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Detailed Lists -->
+        <div class="detail-bottom-grid">
+            <div class="info-card">
+                <h3 style="margin-bottom: 15px; color: var(--accent);">Highlights</h3>
+                <ul id="det-highlights" class="detail-list"></ul>
+            </div>
+            <div class="info-card">
+                <h3 style="margin-bottom: 15px; color: var(--accent);">Usage Notes</h3>
+                <ul id="det-usage" class="detail-list"></ul>
+            </div>
+            <div class="info-card">
+                <h3 style="margin-bottom: 15px; color: var(--accent);">Quick Install</h3>
+                <ul class="detail-list">
+                    <li>Install Fabric Loader and Fabric API</li>
+                    <li>Move the jar file into .minecraft/mods</li>
+                    <li>Start Minecraft with Fabric profile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="padding: 60px; text-align: center; color: #475569; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 Cracked Clients DonutSMP. Cracked Clients is a third-party utility mod hub. We are not affiliated with Mojang or Microsoft.</p>
+    </footer>
+
+    <!-- Logic for Dynamic Loading and Fallbacks -->
+    <script>
+        async function loadDetail() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get('id');
+                const response = await fetch('./products.json');
+                const products = await response.json();
+                const p = products.find(item => item.id === id);
+
+                if (p) {
+                    // Update Text Data
+                    document.title = `${p.name} | Cracked Clients DonutSMP`;
+                    document.getElementById('det-title').innerText = p.name;
+                    document.getElementById('det-status').innerText = p.status;
+                    document.getElementById('det-desc').innerText = p.description;
+                    document.getElementById('det-ver').innerText = p.version;
+                    document.getElementById('det-size').innerText = p.size;
+                    document.getElementById('det-dl').innerText = p.downloads;
+                    
+                    // Handle Download Link
+                    const dlBtn = document.getElementById('download-link');
+                    dlBtn.href = p.download_url || "#";
+                    if (!p.download_url) {
+                        dlBtn.style.opacity = "0.5";
+                        dlBtn.innerText = "Unavailable";
+                    }
+
+                    // Image Fallback Logic (16:9 branded placeholder)
+                    const imgElement = document.getElementById('det-img');
+                    const fallback = "https://placehold.co/1920x1080/1a1a1f/f39c12?text=Preview+Unavailable";
+
+                    imgElement.src = p.image || fallback;
+                    imgElement.alt = `${p.name} - DonutSMP Client Mods Preview`; 
+
+                    imgElement.onerror = function() {
+                        this.src = fallback;
+                        this.alt = "Preview Unavailable for this DonutSMP Mod";
+                        this.onerror = null;
+                    };
+                    
+                    // Inject List Data
+                    document.getElementById('det-tags').innerHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+                    document.getElementById('det-req').innerHTML = p.requirements.join('<br>');
+                    document.getElementById('det-highlights').innerHTML = p.highlights.map(h => `<li>${h}</li>`).join('');
+                    document.getElementById('det-usage').innerHTML = p.usage.map(u => `<li>${u}</li>`).join('');
+                } else {
+                    // Redirect or Error if product ID is invalid
+                    document.querySelector('.detail-container').innerHTML = "<h1 style='text-align:center; padding:100px;'>Product not found.</h1>";
+                }
+            } catch (e) {
+                console.error("Critical error loading product details:", e);
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', loadDetail);
+    </script>
+</body>
+</html>

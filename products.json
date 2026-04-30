@@ -1,0 +1,110 @@
+[
+  {
+    "id": "gambling-rig",
+    "name": "Gambling Rig",
+    "version": "1.21.x",
+    "status": "UNDETECTED",
+    "size": "341 KB",
+    "downloads": "1,041",
+    "download_url": "https://github.com/shidiqnh/YOUR_REPO/raw/main/mods/gambling-rig.jar",
+    "image": "img/gambling-preview.png",
+    "description": "Gambling Rig is a dispenser manipulation mod that lets you control dispenser outcomes and decide which side wins. It rigs casino mechanics by turning random rolls into player-controlled results for consistent winning rounds.",
+    "tags": ["PAPER GAME", "50/50", "BLACKJACK"],
+    "requirements": ["Fabric Loader", "Fabric API"],
+    "highlights": ["Paper Game", "50/50", "Blackjack"],
+    "usage": [
+      "Press 'P' to open the Gambling Rig menu and apply your settings.",
+      "Rename dispenser items to 1 through 9 before using the mod."
+    ]
+  },
+  {
+    "id": "opsec",
+    "name": "OpSec",
+    "version": "1.21.x",
+    "status": "UNDETECTED",
+    "size": "2.2 MB",
+    "downloads": "852",
+    "download_url": "https://github.com/shidiqnh/YOUR_REPO/raw/main/mods/opsec.jar",
+    "image": "img/opsec-preview.png",
+    "description": "A client-side Minecraft mod that provides protection against client fingerprinting, tracking exploits, and other privacy focused features.",
+    "tags": ["PRIVACY", "SECURITY", "ANTI-TRACKING"],
+    "requirements": ["Fabric Loader"],
+    "highlights": ["Identity Protection", "Exploit Shield", "Data Privacy"],
+    "usage": [
+      "Settings are applied automatically on startup.",
+      "Toggle specific protections in the config file."
+    ]
+  },
+  {
+    "id": "fake-pay",
+    "name": "Fake Pay",
+    "version": "1.21.x",
+    "status": "UNDETECTED",
+    "size": "48.6 KB",
+    "downloads": "2,105",
+    "download_url": "#",
+    "image": "img/fakepay-preview.png",
+    "description": "FakePay is a lightweight client-side utility designed for paying any amount to anyone you want without paying your real money. It is a visual-only modification.",
+    "tags": ["UTILITY"],
+    "requirements": ["Fabric Loader", "Fabric API"],
+    "highlights": ["Visual Balance Edit", "Custom Pay Messages", "Instant Feedback"],
+    "usage": [
+      "Use command /fakepay [player] [amount] to trigger a fake transaction.",
+      "This is client-side only and will not affect server-side balances."
+    ]
+  },
+  {
+    "id": "meteor-client",
+    "name": "Meteor Client",
+    "version": "1.21.11",
+    "status": "UNDETECTED",
+    "size": "4.8 MB",
+    "downloads": "15,402",
+    "download_url": "#",
+    "image": "img/meteor-preview.png",
+    "description": "Meteor Client is an all-in-one cheat client with combat, movement, render, and automation modules for full in-game control.",
+    "tags": ["PVP", "UTILITY", "ESP", "AUTOMATION"],
+    "requirements": ["Fabric Loader", "Fabric API"],
+    "highlights": ["Advanced Aura", "Custom HUD", "Baritone Integration"],
+    "usage": [
+      "Press Right-Shift to open the ClickGUI.",
+      "Use the .help command for a list of chat-based controls."
+    ]
+  },
+  {
+    "id": "glazed-addon",
+    "name": "Glazed Addon",
+    "version": "1.21.11",
+    "status": "UNDETECTED",
+    "size": "1.1 MB",
+    "downloads": "3,210",
+    "download_url": "#",
+    "image": "img/glazed-preview.png",
+    "description": "Glazed Addon is a Meteor Client addon for DonutSMP. Enhanced PvP, utility, and automation features specifically for economy servers.",
+    "tags": ["AH SELL", "AH SNIPER", "ORDER SNIPER"],
+    "requirements": ["Fabric Loader", "Fabric API", "Meteor Client"],
+    "highlights": ["Auto-Auction", "Inventory Sniping", "DonutSMP Bypasses"],
+    "usage": [
+      "Ensure Meteor Client is installed first.",
+      "Access modules via the 'Glazed' tab in the Meteor GUI."
+    ]
+  },
+  {
+    "id": "doomsday-client",
+    "name": "Doomsday Client",
+    "version": "1.8 - 1.21.11",
+    "status": "UNDETECTED",
+    "size": "3 MB",
+    "downloads": "9,840",
+    "download_url": "#",
+    "image": "img/doomsday-preview.png",
+    "description": "Doomsday Client is a Minecraft cheat client with broad loader compatibility and fast in-game module control across many versions.",
+    "tags": ["COMBAT", "UTILITY", "MOVEMENT", "WORLD"],
+    "requirements": ["Fabric Loader", "Fabric API"],
+    "highlights": ["Multi-Version Support", "Fast Packet Logic", "Clean Interface"],
+    "usage": [
+      "Select your version in the launcher before starting.",
+      "Check the 'Movement' tab for high-speed flight modules."
+    ]
+  }
+]
